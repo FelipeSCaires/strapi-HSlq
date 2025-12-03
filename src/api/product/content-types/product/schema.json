@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Produto"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "barcode": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-category.product-category"
+    },
+    "unit": {
+      "type": "enumeration",
+      "enum": ["unit", "kg", "liter", "meter", "box", "pack"]
+    },
+    "minimumStock": {
+      "type": "decimal"
+    },
+    "maximumStock": {
+      "type": "decimal"
+    },
+    "currentStock": {
+      "type": "decimal",
+      "default": 0
+    },
+    "costPrice": {
+      "type": "decimal"
+    },
+    "salePrice": {
+      "type": "decimal"
+    },
+    "supplier": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona"
+    },
+    "location": {
+      "type": "string"
+    },
+    "batches": {
+      "type": "component",
+      "component": "stock.batch",
+      "repeatable": true
+    },
+    "image": {
+      "type": "media",
+      "allowedTypes": ["images"]
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

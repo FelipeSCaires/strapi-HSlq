@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_negotiation_history_items",
+  "info": {
+    "displayName": "Negotiation History",
+    "icon": "history"
+  },
+  "attributes": {
+    "timestamp": {
+      "type": "datetime",
+      "required": true
+    },
+    "action": {
+      "type": "enumeration",
+      "enum": ["created", "proposed", "counter_proposed", "accepted", "rejected"]
+    },
+    "value": {
+      "type": "decimal"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "user": {
+      "type": "string"
+    }
+  }
+}

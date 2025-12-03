@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "body_types",
+  "info": {
+    "singularName": "body-type",
+    "pluralName": "body-types",
+    "displayName": "Tipo de Carroceria"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string",
+      "unique": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "persona_groups",
+  "info": {
+    "singularName": "persona-group",
+    "pluralName": "persona-groups",
+    "displayName": "Grupo de Persona"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "personas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::persona.persona",
+      "mappedBy": "personaGroup"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "negotiations",
+  "info": {
+    "singularName": "negotiation",
+    "pluralName": "negotiations",
+    "displayName": "Negociação"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "code": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["open", "negotiating", "accepted", "rejected", "cancelled"],
+      "default": "open"
+    },
+    "pricing": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pricing.pricing"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona"
+    },
+    "originalValue": {
+      "type": "decimal"
+    },
+    "proposedValue": {
+      "type": "decimal"
+    },
+    "finalValue": {
+      "type": "decimal"
+    },
+    "history": {
+      "type": "component",
+      "component": "negotiation.history-item",
+      "repeatable": true
+    },
+    "expiresAt": {
+      "type": "datetime"
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_cargo_items",
+  "info": {
+    "displayName": "Cargo Item",
+    "icon": "box"
+  },
+  "attributes": {
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "quantity": {
+      "type": "decimal",
+      "required": true
+    },
+    "unit": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "decimal"
+    },
+    "volume": {
+      "type": "decimal"
+    },
+    "value": {
+      "type": "decimal"
+    },
+    "nfeKey": {
+      "type": "string"
+    }
+  }
+}

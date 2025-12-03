@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_tax_document_corrections",
+  "info": {
+    "displayName": "Document Correction",
+    "icon": "edit"
+  },
+  "attributes": {
+    "sequence": {
+      "type": "integer",
+      "required": true
+    },
+    "correctionText": {
+      "type": "text",
+      "required": true
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "correctionDate": {
+      "type": "datetime"
+    }
+  }
+}

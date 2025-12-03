@@ -1,0 +1,127 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vehicles",
+  "info": {
+    "singularName": "vehicle",
+    "pluralName": "vehicles",
+    "displayName": "Veículo"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "plate": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "renavam": {
+      "type": "string"
+    },
+    "chassisNumber": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "year": {
+      "type": "integer"
+    },
+    "modelYear": {
+      "type": "integer"
+    },
+    "color": {
+      "type": "string"
+    },
+    "fuelType": {
+      "type": "enumeration",
+      "enum": ["diesel", "gasoline", "ethanol", "flex", "electric", "hybrid"]
+    },
+    "odometer": {
+      "type": "decimal"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["available", "in_use", "maintenance", "inactive"],
+      "default": "available"
+    },
+    "acquisitionDate": {
+      "type": "date"
+    },
+    "acquisitionValue": {
+      "type": "decimal"
+    },
+    "vehicleType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vehicle-type.vehicle-type"
+    },
+    "bodyType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::body-type.body-type"
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona"
+    },
+    "currentDriver": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::driver.driver"
+    },
+    "tracker": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tracker.tracker",
+      "inversedBy": "vehicle"
+    },
+    "tires": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tire.tire",
+      "mappedBy": "vehicle"
+    },
+    "maintenances": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::maintenance.maintenance",
+      "mappedBy": "vehicle"
+    },
+    "documents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::vehicle-document.vehicle-document",
+      "mappedBy": "vehicle"
+    },
+    "insurances": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::insurance-policy.insurance-policy",
+      "mappedBy": "vehicle"
+    },
+    "capacityWeight": {
+      "type": "decimal"
+    },
+    "capacityVolume": {
+      "type": "decimal"
+    },
+    "axleCount": {
+      "type": "integer"
+    },
+    "anttCode": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "metadata": {
+      "type": "json"
+    }
+  }
+}

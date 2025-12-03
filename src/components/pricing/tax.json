@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_pricing_taxes",
+  "info": {
+    "displayName": "Tax",
+    "icon": "percentage"
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "rate": {
+      "type": "decimal",
+      "required": true
+    },
+    "value": {
+      "type": "decimal"
+    },
+    "isIncluded": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

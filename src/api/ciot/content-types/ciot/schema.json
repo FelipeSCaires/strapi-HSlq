@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ciots",
+  "info": {
+    "singularName": "ciot",
+    "pluralName": "ciots",
+    "displayName": "CIOT"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "code": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["active", "closed", "cancelled"],
+      "default": "active"
+    },
+    "contractor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona"
+    },
+    "driver": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::driver.driver"
+    },
+    "vehicle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vehicle.vehicle"
+    },
+    "trip": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::trip.trip"
+    },
+    "freightValue": {
+      "type": "decimal"
+    },
+    "tollValue": {
+      "type": "decimal"
+    },
+    "issueDate": {
+      "type": "datetime"
+    },
+    "closingDate": {
+      "type": "datetime"
+    },
+    "cteKeys": {
+      "type": "json"
+    },
+    "nfeKeys": {
+      "type": "json"
+    }
+  }
+}

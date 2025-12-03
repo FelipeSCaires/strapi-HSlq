@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "regions",
+  "info": {
+    "singularName": "region",
+    "pluralName": "regions",
+    "displayName": "Região"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string",
+      "unique": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["state", "city", "microregion", "polygon", "custom"]
+    },
+    "states": {
+      "type": "json"
+    },
+    "cities": {
+      "type": "json"
+    },
+    "polygon": {
+      "type": "json"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

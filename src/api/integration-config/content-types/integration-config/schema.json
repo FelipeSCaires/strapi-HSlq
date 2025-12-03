@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "integration_configs",
+  "info": {
+    "singularName": "integration-config",
+    "pluralName": "integration-configs",
+    "displayName": "Configuração de Integração"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "key": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["api", "webhook", "sftp", "email", "sms", "erp", "tracking", "fiscal"]
+    },
+    "baseUrl": {
+      "type": "string"
+    },
+    "credentials": {
+      "type": "json"
+    },
+    "headers": {
+      "type": "json"
+    },
+    "settings": {
+      "type": "json"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "lastSync": {
+      "type": "datetime"
+    },
+    "lastError": {
+      "type": "text"
+    }
+  }
+}

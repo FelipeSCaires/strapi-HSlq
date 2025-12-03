@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "persona_types",
+  "info": {
+    "singularName": "persona-type",
+    "pluralName": "persona-types",
+    "displayName": "Tipo de Persona"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "key": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

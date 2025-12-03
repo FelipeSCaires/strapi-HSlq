@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bank_accounts",
+  "info": {
+    "singularName": "bank-account",
+    "pluralName": "bank-accounts",
+    "displayName": "Conta Bancária"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "bank": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::bank.bank"
+    },
+    "agency": {
+      "type": "string"
+    },
+    "agencyDigit": {
+      "type": "string"
+    },
+    "accountNumber": {
+      "type": "string",
+      "required": true
+    },
+    "accountDigit": {
+      "type": "string"
+    },
+    "accountType": {
+      "type": "enumeration",
+      "enum": ["checking", "savings", "salary", "payment"],
+      "default": "checking"
+    },
+    "pixKey": {
+      "type": "string"
+    },
+    "pixKeyType": {
+      "type": "enumeration",
+      "enum": ["cpf", "cnpj", "email", "phone", "random"]
+    },
+    "initialBalance": {
+      "type": "decimal",
+      "default": 0
+    },
+    "currentBalance": {
+      "type": "decimal",
+      "default": 0
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "persona": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona",
+      "inversedBy": "bankAccounts"
+    },
+    "isCompanyAccount": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

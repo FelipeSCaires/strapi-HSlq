@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sequence_generators",
+  "info": {
+    "singularName": "sequence-generator",
+    "pluralName": "sequence-generators",
+    "displayName": "Gerador de Sequência"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "key": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "prefix": {
+      "type": "string"
+    },
+    "suffix": {
+      "type": "string"
+    },
+    "currentValue": {
+      "type": "biginteger",
+      "default": 0
+    },
+    "padLength": {
+      "type": "integer",
+      "default": 6
+    },
+    "resetPeriod": {
+      "type": "enumeration",
+      "enum": ["never", "daily", "monthly", "yearly"]
+    },
+    "lastReset": {
+      "type": "date"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

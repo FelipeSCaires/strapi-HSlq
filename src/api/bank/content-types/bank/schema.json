@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "banks",
+  "info": {
+    "singularName": "bank",
+    "pluralName": "banks",
+    "displayName": "Banco"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "code": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "shortName": {
+      "type": "string"
+    },
+    "ispb": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

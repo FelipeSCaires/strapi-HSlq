@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fuel_stations",
+  "info": {
+    "singularName": "fuel-station",
+    "pluralName": "fuel-stations",
+    "displayName": "Posto de Combustível"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "brand": {
+      "type": "string"
+    },
+    "persona": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::persona.persona"
+    },
+    "address": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::address.address"
+    },
+    "isPartner": {
+      "type": "boolean",
+      "default": false
+    },
+    "discountPercentage": {
+      "type": "decimal"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_insurance_coverages",
+  "info": {
+    "displayName": "Insurance Coverage",
+    "icon": "shield-alt"
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "coverageValue": {
+      "type": "decimal"
+    },
+    "deductible": {
+      "type": "decimal"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

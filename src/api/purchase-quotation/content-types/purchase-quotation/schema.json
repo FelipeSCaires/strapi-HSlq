@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "purchase_quotations",
+  "info": {
+    "singularName": "purchase-quotation",
+    "pluralName": "purchase-quotations",
+    "displayName": "Cotação de Compra"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "code": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["open", "closed", "cancelled"],
+      "default": "open"
+    },
+    "purchaseRequest": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::purchase-request.purchase-request"
+    },
+    "openDate": {
+      "type": "date",
+      "required": true
+    },
+    "closeDate": {
+      "type": "date"
+    },
+    "suppliers": {
+      "type": "component",
+      "component": "purchasing.quotation-supplier",
+      "repeatable": true
+    },
+    "selectedSupplier": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona"
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

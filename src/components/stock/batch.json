@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_stock_batches",
+  "info": {
+    "displayName": "Stock Batch",
+    "icon": "layer-group"
+  },
+  "attributes": {
+    "batchNumber": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "decimal",
+      "required": true
+    },
+    "manufactureDate": {
+      "type": "date"
+    },
+    "expirationDate": {
+      "type": "date"
+    },
+    "location": {
+      "type": "string"
+    }
+  }
+}

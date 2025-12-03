@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vehicle_types",
+  "info": {
+    "singularName": "vehicle-type",
+    "pluralName": "vehicle-types",
+    "displayName": "Tipo de Veículo"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string",
+      "unique": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": ["truck", "trailer", "semi_trailer", "van", "pickup", "other"]
+    },
+    "axleCount": {
+      "type": "integer"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

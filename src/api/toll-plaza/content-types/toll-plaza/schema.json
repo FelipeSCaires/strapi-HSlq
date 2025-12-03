@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "toll_plazas",
+  "info": {
+    "singularName": "toll-plaza",
+    "pluralName": "toll-plazas",
+    "displayName": "Praça de Pedágio"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string"
+    },
+    "highway": {
+      "type": "string"
+    },
+    "km": {
+      "type": "decimal"
+    },
+    "direction": {
+      "type": "string"
+    },
+    "concessionaire": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "location": {
+      "type": "component",
+      "component": "shared.geolocation"
+    },
+    "rates": {
+      "type": "component",
+      "component": "toll.rate",
+      "repeatable": true
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

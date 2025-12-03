@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vehicle_documents",
+  "info": {
+    "singularName": "vehicle-document",
+    "pluralName": "vehicle-documents",
+    "displayName": "Documento do Veículo"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "vehicle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vehicle.vehicle",
+      "inversedBy": "documents"
+    },
+    "documentType": {
+      "type": "enumeration",
+      "enum": ["crlv", "ipva", "licensing", "insurance", "antt", "other"]
+    },
+    "description": {
+      "type": "string"
+    },
+    "issueDate": {
+      "type": "date"
+    },
+    "expirationDate": {
+      "type": "date"
+    },
+    "documentNumber": {
+      "type": "string"
+    },
+    "file": {
+      "type": "media"
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

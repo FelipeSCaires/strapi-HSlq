@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "purchase_requests",
+  "info": {
+    "singularName": "purchase-request",
+    "pluralName": "purchase-requests",
+    "displayName": "Requisição de Compra"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "code": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["draft", "pending_approval", "approved", "rejected", "ordered", "completed"],
+      "default": "draft"
+    },
+    "requester": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::employee.employee"
+    },
+    "department": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::department.department"
+    },
+    "requestDate": {
+      "type": "date",
+      "required": true
+    },
+    "neededBy": {
+      "type": "date"
+    },
+    "items": {
+      "type": "component",
+      "component": "purchasing.request-item",
+      "repeatable": true
+    },
+    "justification": {
+      "type": "text"
+    },
+    "approver": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::employee.employee"
+    },
+    "approvalDate": {
+      "type": "datetime"
+    },
+    "quotation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::purchase-quotation.purchase-quotation"
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

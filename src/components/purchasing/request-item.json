@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_purchasing_request_items",
+  "info": {
+    "displayName": "Purchase Request Item",
+    "icon": "clipboard-list"
+  },
+  "attributes": {
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "quantity": {
+      "type": "decimal",
+      "required": true
+    },
+    "unit": {
+      "type": "string"
+    },
+    "estimatedPrice": {
+      "type": "decimal"
+    },
+    "specifications": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_toll_rates",
+  "info": {
+    "displayName": "Toll Rate",
+    "icon": "money-bill"
+  },
+  "attributes": {
+    "axleCount": {
+      "type": "integer",
+      "required": true
+    },
+    "value": {
+      "type": "decimal",
+      "required": true
+    },
+    "vehicleCategory": {
+      "type": "string"
+    }
+  }
+}

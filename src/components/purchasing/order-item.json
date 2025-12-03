@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_purchasing_order_items",
+  "info": {
+    "displayName": "Purchase Order Item",
+    "icon": "shopping-cart"
+  },
+  "attributes": {
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "quantity": {
+      "type": "decimal",
+      "required": true
+    },
+    "unit": {
+      "type": "string"
+    },
+    "unitPrice": {
+      "type": "decimal",
+      "required": true
+    },
+    "totalPrice": {
+      "type": "decimal"
+    },
+    "receivedQuantity": {
+      "type": "decimal",
+      "default": 0
+    }
+  }
+}

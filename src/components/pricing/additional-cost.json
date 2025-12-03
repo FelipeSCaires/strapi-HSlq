@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_pricing_additional_costs",
+  "info": {
+    "displayName": "Additional Cost",
+    "icon": "dollar-sign"
+  },
+  "attributes": {
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["fixed", "percentage"]
+    },
+    "value": {
+      "type": "decimal",
+      "required": true
+    },
+    "calculatedValue": {
+      "type": "decimal"
+    }
+  }
+}

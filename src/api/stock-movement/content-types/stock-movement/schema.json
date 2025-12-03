@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stock_movements",
+  "info": {
+    "singularName": "stock-movement",
+    "pluralName": "stock-movements",
+    "displayName": "Movimentação de Estoque"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product"
+    },
+    "movementType": {
+      "type": "enumeration",
+      "enum": ["entry", "exit", "transfer", "adjustment", "return"],
+      "required": true
+    },
+    "quantity": {
+      "type": "decimal",
+      "required": true
+    },
+    "unitCost": {
+      "type": "decimal"
+    },
+    "movementDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "documentNumber": {
+      "type": "string"
+    },
+    "origin": {
+      "type": "string"
+    },
+    "destination": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "vehicle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vehicle.vehicle"
+    },
+    "trip": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::trip.trip"
+    },
+    "purchaseOrder": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::purchase-order.purchase-order"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

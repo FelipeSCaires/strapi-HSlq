@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notification_templates",
+  "info": {
+    "singularName": "notification-template",
+    "pluralName": "notification-templates",
+    "displayName": "Template de Notificação"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "key": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "channel": {
+      "type": "enumeration",
+      "enum": ["email", "sms", "push", "whatsapp", "system"],
+      "required": true
+    },
+    "subject": {
+      "type": "string"
+    },
+    "body": {
+      "type": "text",
+      "required": true
+    },
+    "variables": {
+      "type": "json"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

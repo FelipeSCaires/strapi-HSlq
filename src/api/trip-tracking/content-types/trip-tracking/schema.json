@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trip_trackings",
+  "info": {
+    "singularName": "trip-tracking",
+    "pluralName": "trip-trackings",
+    "displayName": "Rastreamento de Viagem"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "trip": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::trip.trip",
+      "inversedBy": "tracking"
+    },
+    "timestamp": {
+      "type": "datetime",
+      "required": true
+    },
+    "location": {
+      "type": "component",
+      "component": "shared.geolocation"
+    },
+    "speed": {
+      "type": "decimal"
+    },
+    "heading": {
+      "type": "decimal"
+    },
+    "eventType": {
+      "type": "enumeration",
+      "enum": ["position", "stop", "departure", "arrival", "alert", "geofence"]
+    },
+    "eventDescription": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "json"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "maintenances",
+  "info": {
+    "singularName": "maintenance",
+    "pluralName": "maintenances",
+    "displayName": "Manutenção"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "vehicle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vehicle.vehicle",
+      "inversedBy": "maintenances"
+    },
+    "maintenanceType": {
+      "type": "enumeration",
+      "enum": ["preventive", "corrective", "predictive"],
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "scheduledDate": {
+      "type": "date"
+    },
+    "executionDate": {
+      "type": "date"
+    },
+    "odometerAtService": {
+      "type": "decimal"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["scheduled", "in_progress", "completed", "cancelled"],
+      "default": "scheduled"
+    },
+    "cost": {
+      "type": "decimal"
+    },
+    "supplier": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona"
+    },
+    "items": {
+      "type": "component",
+      "component": "maintenance.item",
+      "repeatable": true
+    },
+    "documents": {
+      "type": "media",
+      "multiple": true
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

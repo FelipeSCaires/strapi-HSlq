@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "insurance_policies",
+  "info": {
+    "singularName": "insurance-policy",
+    "pluralName": "insurance-policies",
+    "displayName": "Apólice de Seguro"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "policyNumber": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["rctr_c", "rctf_c", "rcf_dc", "casco", "civil", "cargo"],
+      "required": true
+    },
+    "insurer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona"
+    },
+    "broker": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona"
+    },
+    "vehicle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vehicle.vehicle",
+      "inversedBy": "insurances"
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "endDate": {
+      "type": "date",
+      "required": true
+    },
+    "premiumValue": {
+      "type": "decimal"
+    },
+    "coverageValue": {
+      "type": "decimal"
+    },
+    "deductible": {
+      "type": "decimal"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["active", "expired", "cancelled", "pending"],
+      "default": "pending"
+    },
+    "coverages": {
+      "type": "component",
+      "component": "insurance.coverage",
+      "repeatable": true
+    },
+    "endorsements": {
+      "type": "component",
+      "component": "insurance.endorsement",
+      "repeatable": true
+    },
+    "documents": {
+      "type": "media",
+      "multiple": true
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

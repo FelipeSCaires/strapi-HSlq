@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cost_centers",
+  "info": {
+    "singularName": "cost-center",
+    "pluralName": "cost-centers",
+    "displayName": "Centro de Custo"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string",
+      "unique": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::cost-center.cost-center",
+      "inversedBy": "children"
+    },
+    "children": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cost-center.cost-center",
+      "mappedBy": "parent"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

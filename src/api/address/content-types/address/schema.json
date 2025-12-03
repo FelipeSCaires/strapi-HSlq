@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "addresses",
+  "info": {
+    "singularName": "address",
+    "pluralName": "addresses",
+    "displayName": "Endereço"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "street": {
+      "type": "string",
+      "required": true
+    },
+    "number": {
+      "type": "string"
+    },
+    "complement": {
+      "type": "string"
+    },
+    "neighborhood": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "state": {
+      "type": "string",
+      "required": true
+    },
+    "country": {
+      "type": "string",
+      "default": "Brasil"
+    },
+    "zipCode": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "decimal"
+    },
+    "longitude": {
+      "type": "decimal"
+    },
+    "ibgeCode": {
+      "type": "string"
+    },
+    "addressType": {
+      "type": "enumeration",
+      "enum": ["main", "billing", "shipping", "branch", "other"]
+    },
+    "isDefault": {
+      "type": "boolean",
+      "default": false
+    },
+    "persona": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona",
+      "inversedBy": "addresses"
+    }
+  }
+}

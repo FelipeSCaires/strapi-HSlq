@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "financial_categories",
+  "info": {
+    "singularName": "financial-category",
+    "pluralName": "financial-categories",
+    "displayName": "Categoria Financeira"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["income", "expense"],
+      "required": true
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::financial-category.financial-category",
+      "inversedBy": "children"
+    },
+    "children": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::financial-category.financial-category",
+      "mappedBy": "parent"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

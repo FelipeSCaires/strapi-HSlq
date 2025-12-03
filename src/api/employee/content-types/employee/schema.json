@@ -1,0 +1,83 @@
+{
+  "kind": "collectionType",
+  "collectionName": "employees",
+  "info": {
+    "singularName": "employee",
+    "pluralName": "employees",
+    "displayName": "Funcionário"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "document": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "rg": {
+      "type": "string"
+    },
+    "birthDate": {
+      "type": "date"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "mobile": {
+      "type": "string"
+    },
+    "hireDate": {
+      "type": "date"
+    },
+    "terminationDate": {
+      "type": "date"
+    },
+    "position": {
+      "type": "string"
+    },
+    "department": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::department.department"
+    },
+    "manager": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::employee.employee"
+    },
+    "salary": {
+      "type": "decimal"
+    },
+    "address": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::address.address"
+    },
+    "bankAccount": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bank-account.bank-account"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "photo": {
+      "type": "media",
+      "allowedTypes": ["images"]
+    }
+  }
+}

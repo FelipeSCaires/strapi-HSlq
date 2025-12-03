@@ -1,0 +1,116 @@
+{
+  "kind": "collectionType",
+  "collectionName": "drivers",
+  "info": {
+    "singularName": "driver",
+    "pluralName": "drivers",
+    "displayName": "Motorista"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "document": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "rg": {
+      "type": "string"
+    },
+    "birthDate": {
+      "type": "date"
+    },
+    "cnhNumber": {
+      "type": "string",
+      "required": true
+    },
+    "cnhCategory": {
+      "type": "enumeration",
+      "enum": ["A", "B", "C", "D", "E", "AB", "AC", "AD", "AE"]
+    },
+    "cnhExpiration": {
+      "type": "date"
+    },
+    "cnhFirstIssue": {
+      "type": "date"
+    },
+    "mopp": {
+      "type": "boolean",
+      "default": false
+    },
+    "moppExpiration": {
+      "type": "date"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "mobile": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["available", "on_trip", "resting", "vacation", "inactive"],
+      "default": "available"
+    },
+    "hireDate": {
+      "type": "date"
+    },
+    "terminationDate": {
+      "type": "date"
+    },
+    "employmentType": {
+      "type": "enumeration",
+      "enum": ["clt", "autonomous", "aggregated", "third_party"]
+    },
+    "address": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::address.address"
+    },
+    "bankAccount": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bank-account.bank-account"
+    },
+    "vehicles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::vehicle.vehicle"
+    },
+    "trips": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::trip.trip",
+      "mappedBy": "driver"
+    },
+    "restRecords": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::driver-rest.driver-rest",
+      "mappedBy": "driver"
+    },
+    "emergencyContact": {
+      "type": "component",
+      "component": "shared.emergency-contact"
+    },
+    "photo": {
+      "type": "media",
+      "allowedTypes": ["images"]
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "metadata": {
+      "type": "json"
+    }
+  }
+}

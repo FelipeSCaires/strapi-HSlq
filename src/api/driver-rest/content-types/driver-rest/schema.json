@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "driver_rests",
+  "info": {
+    "singularName": "driver-rest",
+    "pluralName": "driver-rests",
+    "displayName": "Descanso do Motorista"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "driver": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::driver.driver",
+      "inversedBy": "restRecords"
+    },
+    "trip": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::trip.trip"
+    },
+    "startTime": {
+      "type": "datetime",
+      "required": true
+    },
+    "endTime": {
+      "type": "datetime"
+    },
+    "restType": {
+      "type": "enumeration",
+      "enum": ["mandatory", "meal", "overnight", "weekly"],
+      "required": true
+    },
+    "location": {
+      "type": "component",
+      "component": "shared.geolocation"
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

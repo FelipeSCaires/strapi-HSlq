@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trackers",
+  "info": {
+    "singularName": "tracker",
+    "pluralName": "trackers",
+    "displayName": "Rastreador"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "serialNumber": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "brand": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "imei": {
+      "type": "string"
+    },
+    "simCard": {
+      "type": "string"
+    },
+    "installationDate": {
+      "type": "date"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["active", "inactive", "maintenance"],
+      "default": "active"
+    },
+    "provider": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona"
+    },
+    "vehicle": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::vehicle.vehicle",
+      "mappedBy": "tracker"
+    },
+    "lastPosition": {
+      "type": "component",
+      "component": "shared.geolocation"
+    },
+    "lastUpdate": {
+      "type": "datetime"
+    }
+  }
+}

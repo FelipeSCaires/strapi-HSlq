@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_geolocations",
+  "info": {
+    "displayName": "Geolocation",
+    "icon": "map-marker-alt"
+  },
+  "attributes": {
+    "latitude": {
+      "type": "decimal"
+    },
+    "longitude": {
+      "type": "decimal"
+    },
+    "address": {
+      "type": "string"
+    }
+  }
+}

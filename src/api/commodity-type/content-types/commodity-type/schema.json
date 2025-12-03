@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "commodity_types",
+  "info": {
+    "singularName": "commodity-type",
+    "pluralName": "commodity-types",
+    "displayName": "Tipo de Mercadoria"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string",
+      "unique": true
+    },
+    "ncm": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "requiresRefrigeration": {
+      "type": "boolean",
+      "default": false
+    },
+    "isDangerous": {
+      "type": "boolean",
+      "default": false
+    },
+    "dangerousClass": {
+      "type": "string"
+    },
+    "unNumber": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

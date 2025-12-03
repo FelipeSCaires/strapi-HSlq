@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "freight_tables",
+  "info": {
+    "singularName": "freight-table",
+    "pluralName": "freight-tables",
+    "displayName": "Tabela de Frete"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string",
+      "unique": true
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona"
+    },
+    "validFrom": {
+      "type": "date",
+      "required": true
+    },
+    "validUntil": {
+      "type": "date"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["draft", "active", "expired", "cancelled"],
+      "default": "draft"
+    },
+    "calculationType": {
+      "type": "enumeration",
+      "enum": ["per_kg", "per_km", "per_volume", "fixed", "formula"]
+    },
+    "rates": {
+      "type": "component",
+      "component": "freight.rate",
+      "repeatable": true
+    },
+    "minimumFreight": {
+      "type": "decimal"
+    },
+    "formula": {
+      "type": "text"
+    },
+    "originRegions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::region.region"
+    },
+    "destinationRegions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::region.region"
+    },
+    "vehicleTypes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::vehicle-type.vehicle-type"
+    },
+    "commodityTypes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::commodity-type.commodity-type"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

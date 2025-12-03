@@ -1,0 +1,58 @@
+{
+  "kind": "singleType",
+  "collectionName": "company_settings",
+  "info": {
+    "singularName": "company-settings",
+    "pluralName": "all-company-settings",
+    "displayName": "Configurações da Empresa"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "companyName": {
+      "type": "string",
+      "required": true
+    },
+    "tradeName": {
+      "type": "string"
+    },
+    "document": {
+      "type": "string",
+      "required": true
+    },
+    "stateRegistration": {
+      "type": "string"
+    },
+    "municipalRegistration": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::address.address"
+    },
+    "logo": {
+      "type": "media",
+      "allowedTypes": ["images"]
+    },
+    "anttCode": {
+      "type": "string"
+    },
+    "rntrcCode": {
+      "type": "string"
+    },
+    "fiscalSettings": {
+      "type": "json"
+    },
+    "systemSettings": {
+      "type": "json"
+    }
+  }
+}

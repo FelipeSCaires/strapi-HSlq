@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_tax_document_events",
+  "info": {
+    "displayName": "Document Event",
+    "icon": "calendar-check"
+  },
+  "attributes": {
+    "eventType": {
+      "type": "string",
+      "required": true
+    },
+    "eventDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

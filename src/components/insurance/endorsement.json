@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_insurance_endorsements",
+  "info": {
+    "displayName": "Insurance Endorsement",
+    "icon": "file-signature"
+  },
+  "attributes": {
+    "number": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string"
+    },
+    "effectiveDate": {
+      "type": "date"
+    },
+    "description": {
+      "type": "text"
+    },
+    "premiumAdjustment": {
+      "type": "decimal"
+    }
+  }
+}

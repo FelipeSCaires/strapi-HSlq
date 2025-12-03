@@ -1,0 +1,109 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trips",
+  "info": {
+    "singularName": "trip",
+    "pluralName": "trips",
+    "displayName": "Viagem"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "code": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["draft", "scheduled", "in_progress", "completed", "cancelled"],
+      "default": "draft"
+    },
+    "driver": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::driver.driver",
+      "inversedBy": "trips"
+    },
+    "vehicle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vehicle.vehicle"
+    },
+    "trailer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vehicle.vehicle"
+    },
+    "scheduledDeparture": {
+      "type": "datetime"
+    },
+    "actualDeparture": {
+      "type": "datetime"
+    },
+    "scheduledArrival": {
+      "type": "datetime"
+    },
+    "actualArrival": {
+      "type": "datetime"
+    },
+    "origin": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::address.address"
+    },
+    "destination": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::address.address"
+    },
+    "waypoints": {
+      "type": "component",
+      "component": "trip.waypoint",
+      "repeatable": true
+    },
+    "cargoSchedulings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cargo-scheduling.cargo-scheduling",
+      "mappedBy": "trip"
+    },
+    "totalDistance": {
+      "type": "decimal"
+    },
+    "totalWeight": {
+      "type": "decimal"
+    },
+    "totalVolume": {
+      "type": "decimal"
+    },
+    "tollCost": {
+      "type": "decimal"
+    },
+    "fuelCost": {
+      "type": "decimal"
+    },
+    "otherCosts": {
+      "type": "decimal"
+    },
+    "taxDocuments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tax-document.tax-document",
+      "mappedBy": "trip"
+    },
+    "tracking": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::trip-tracking.trip-tracking",
+      "mappedBy": "trip"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "metadata": {
+      "type": "json"
+    }
+  }
+}

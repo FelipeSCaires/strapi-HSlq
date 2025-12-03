@@ -1,0 +1,100 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pricings",
+  "info": {
+    "singularName": "pricing",
+    "pluralName": "pricings",
+    "displayName": "Precificação"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "code": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["draft", "calculated", "approved", "rejected"],
+      "default": "draft"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona"
+    },
+    "origin": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::address.address"
+    },
+    "destination": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::address.address"
+    },
+    "distance": {
+      "type": "decimal"
+    },
+    "weight": {
+      "type": "decimal"
+    },
+    "volume": {
+      "type": "decimal"
+    },
+    "cargoValue": {
+      "type": "decimal"
+    },
+    "commodityType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::commodity-type.commodity-type"
+    },
+    "vehicleType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vehicle-type.vehicle-type"
+    },
+    "freightTable": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::freight-table.freight-table"
+    },
+    "baseFreight": {
+      "type": "decimal"
+    },
+    "tollCost": {
+      "type": "decimal"
+    },
+    "insuranceCost": {
+      "type": "decimal"
+    },
+    "additionalCosts": {
+      "type": "component",
+      "component": "pricing.additional-cost",
+      "repeatable": true
+    },
+    "taxes": {
+      "type": "component",
+      "component": "pricing.tax",
+      "repeatable": true
+    },
+    "totalFreight": {
+      "type": "decimal"
+    },
+    "validUntil": {
+      "type": "date"
+    },
+    "routeDetails": {
+      "type": "json"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "metadata": {
+      "type": "json"
+    }
+  }
+}

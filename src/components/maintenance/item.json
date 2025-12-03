@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_maintenance_items",
+  "info": {
+    "displayName": "Maintenance Item",
+    "icon": "tools"
+  },
+  "attributes": {
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "quantity": {
+      "type": "decimal",
+      "default": 1
+    },
+    "unitCost": {
+      "type": "decimal"
+    },
+    "totalCost": {
+      "type": "decimal"
+    },
+    "partNumber": {
+      "type": "string"
+    },
+    "serviceType": {
+      "type": "enumeration",
+      "enum": ["part", "labor", "service"]
+    }
+  }
+}

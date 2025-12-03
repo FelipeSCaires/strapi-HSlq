@@ -1,0 +1,99 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cargo_schedulings",
+  "info": {
+    "singularName": "cargo-scheduling",
+    "pluralName": "cargo-schedulings",
+    "displayName": "Agendamento de Carga"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "code": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["pending", "confirmed", "loaded", "in_transit", "delivered", "cancelled"],
+      "default": "pending"
+    },
+    "shipper": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona"
+    },
+    "consignee": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona"
+    },
+    "pickupAddress": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::address.address"
+    },
+    "deliveryAddress": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::address.address"
+    },
+    "scheduledPickup": {
+      "type": "datetime"
+    },
+    "actualPickup": {
+      "type": "datetime"
+    },
+    "scheduledDelivery": {
+      "type": "datetime"
+    },
+    "actualDelivery": {
+      "type": "datetime"
+    },
+    "items": {
+      "type": "component",
+      "component": "cargo.item",
+      "repeatable": true
+    },
+    "totalWeight": {
+      "type": "decimal"
+    },
+    "totalVolume": {
+      "type": "decimal"
+    },
+    "totalValue": {
+      "type": "decimal"
+    },
+    "commodityType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::commodity-type.commodity-type"
+    },
+    "trip": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::trip.trip",
+      "inversedBy": "cargoSchedulings"
+    },
+    "pricing": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pricing.pricing"
+    },
+    "nfeKeys": {
+      "type": "json"
+    },
+    "documents": {
+      "type": "media",
+      "multiple": true
+    },
+    "notes": {
+      "type": "text"
+    },
+    "metadata": {
+      "type": "json"
+    }
+  }
+}

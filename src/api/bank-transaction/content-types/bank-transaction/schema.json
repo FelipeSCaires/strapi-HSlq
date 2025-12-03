@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bank_transactions",
+  "info": {
+    "singularName": "bank-transaction",
+    "pluralName": "bank-transactions",
+    "displayName": "Transação Bancária"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "bankAccount": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::bank-account.bank-account"
+    },
+    "transactionDate": {
+      "type": "date",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["credit", "debit"],
+      "required": true
+    },
+    "amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "documentNumber": {
+      "type": "string"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::financial-category.financial-category"
+    },
+    "isReconciled": {
+      "type": "boolean",
+      "default": false
+    },
+    "reconciledWith": {
+      "type": "json"
+    },
+    "accountPayable": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account-payable.account-payable"
+    },
+    "accountReceivable": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account-receivable.account-receivable"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "purchase_orders",
+  "info": {
+    "singularName": "purchase-order",
+    "pluralName": "purchase-orders",
+    "displayName": "Pedido de Compra"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "code": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["draft", "sent", "confirmed", "partial", "completed", "cancelled"],
+      "default": "draft"
+    },
+    "supplier": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona"
+    },
+    "quotation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::purchase-quotation.purchase-quotation"
+    },
+    "orderDate": {
+      "type": "date",
+      "required": true
+    },
+    "expectedDelivery": {
+      "type": "date"
+    },
+    "items": {
+      "type": "component",
+      "component": "purchasing.order-item",
+      "repeatable": true
+    },
+    "subtotal": {
+      "type": "decimal"
+    },
+    "discount": {
+      "type": "decimal"
+    },
+    "total": {
+      "type": "decimal"
+    },
+    "paymentTerms": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

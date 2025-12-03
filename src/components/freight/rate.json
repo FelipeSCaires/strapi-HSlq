@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_freight_rates",
+  "info": {
+    "displayName": "Freight Rate",
+    "icon": "truck"
+  },
+  "attributes": {
+    "rangeStart": {
+      "type": "decimal"
+    },
+    "rangeEnd": {
+      "type": "decimal"
+    },
+    "rangeType": {
+      "type": "enumeration",
+      "enum": ["weight", "distance", "volume"]
+    },
+    "value": {
+      "type": "decimal",
+      "required": true
+    },
+    "valueType": {
+      "type": "enumeration",
+      "enum": ["per_unit", "fixed"]
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "kind": "collectionType",
+  "collectionName": "personas",
+  "info": {
+    "singularName": "persona",
+    "pluralName": "personas",
+    "displayName": "Persona",
+    "description": "Clientes, fornecedores, transportadoras e outras entidades"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "tradeName": {
+      "type": "string"
+    },
+    "document": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "documentType": {
+      "type": "enumeration",
+      "enum": ["cpf", "cnpj"],
+      "required": true
+    },
+    "stateRegistration": {
+      "type": "string"
+    },
+    "municipalRegistration": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "mobile": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "personaTypes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::persona-type.persona-type"
+    },
+    "addresses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::address.address",
+      "mappedBy": "persona"
+    },
+    "contacts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::contact.contact",
+      "mappedBy": "persona"
+    },
+    "bankAccounts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bank-account.bank-account",
+      "mappedBy": "persona"
+    },
+    "personaGroup": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona-group.persona-group",
+      "inversedBy": "personas"
+    },
+    "tags": {
+      "type": "json"
+    },
+    "metadata": {
+      "type": "json"
+    }
+  }
+}

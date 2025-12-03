@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tires",
+  "info": {
+    "singularName": "tire",
+    "pluralName": "tires",
+    "displayName": "Pneu"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "serialNumber": {
+      "type": "string",
+      "unique": true
+    },
+    "brand": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "dot": {
+      "type": "string"
+    },
+    "purchaseDate": {
+      "type": "date"
+    },
+    "purchaseValue": {
+      "type": "decimal"
+    },
+    "currentMileage": {
+      "type": "decimal"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["new", "in_use", "retreaded", "disposed"],
+      "default": "new"
+    },
+    "position": {
+      "type": "string"
+    },
+    "vehicle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vehicle.vehicle",
+      "inversedBy": "tires"
+    },
+    "retreadCount": {
+      "type": "integer",
+      "default": 0
+    },
+    "grooveDepth": {
+      "type": "decimal"
+    }
+  }
+}

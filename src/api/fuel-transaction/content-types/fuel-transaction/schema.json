@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fuel_transactions",
+  "info": {
+    "singularName": "fuel-transaction",
+    "pluralName": "fuel-transactions",
+    "displayName": "Abastecimento"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "vehicle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vehicle.vehicle"
+    },
+    "driver": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::driver.driver"
+    },
+    "trip": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::trip.trip"
+    },
+    "station": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::fuel-station.fuel-station"
+    },
+    "transactionDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "fuelType": {
+      "type": "enumeration",
+      "enum": ["diesel_s10", "diesel_s500", "gasoline", "ethanol", "gnv", "arla32"],
+      "required": true
+    },
+    "liters": {
+      "type": "decimal",
+      "required": true
+    },
+    "pricePerLiter": {
+      "type": "decimal",
+      "required": true
+    },
+    "totalValue": {
+      "type": "decimal",
+      "required": true
+    },
+    "odometer": {
+      "type": "decimal"
+    },
+    "fullTank": {
+      "type": "boolean",
+      "default": false
+    },
+    "paymentMethod": {
+      "type": "enumeration",
+      "enum": ["cash", "card", "fuel_card", "transfer", "billed"]
+    },
+    "receipt": {
+      "type": "media"
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

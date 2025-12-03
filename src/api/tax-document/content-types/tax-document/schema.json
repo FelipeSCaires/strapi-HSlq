@@ -1,0 +1,93 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tax_documents",
+  "info": {
+    "singularName": "tax-document",
+    "pluralName": "tax-documents",
+    "displayName": "Documento Fiscal"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": ["nfe", "cte", "mdfe", "nfse", "ciot"],
+      "required": true
+    },
+    "number": {
+      "type": "string",
+      "required": true
+    },
+    "series": {
+      "type": "string"
+    },
+    "accessKey": {
+      "type": "string",
+      "unique": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["draft", "authorized", "cancelled", "denied", "corrected"],
+      "default": "draft"
+    },
+    "issueDate": {
+      "type": "datetime"
+    },
+    "issuer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona"
+    },
+    "recipient": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::persona.persona"
+    },
+    "totalValue": {
+      "type": "decimal"
+    },
+    "trip": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::trip.trip",
+      "inversedBy": "taxDocuments"
+    },
+    "cargoScheduling": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::cargo-scheduling.cargo-scheduling"
+    },
+    "xml": {
+      "type": "text"
+    },
+    "pdf": {
+      "type": "media"
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "protocolDate": {
+      "type": "datetime"
+    },
+    "cancellationProtocol": {
+      "type": "string"
+    },
+    "cancellationDate": {
+      "type": "datetime"
+    },
+    "corrections": {
+      "type": "component",
+      "component": "tax-document.correction",
+      "repeatable": true
+    },
+    "events": {
+      "type": "component",
+      "component": "tax-document.event",
+      "repeatable": true
+    },
+    "metadata": {
+      "type": "json"
+    }
+  }
+}

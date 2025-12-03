@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_purchasing_quotation_suppliers",
+  "info": {
+    "displayName": "Quotation Supplier",
+    "icon": "user-tie"
+  },
+  "attributes": {
+    "supplierName": {
+      "type": "string",
+      "required": true
+    },
+    "supplierId": {
+      "type": "integer"
+    },
+    "quotedPrice": {
+      "type": "decimal"
+    },
+    "deliveryDays": {
+      "type": "integer"
+    },
+    "paymentTerms": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "isSelected": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

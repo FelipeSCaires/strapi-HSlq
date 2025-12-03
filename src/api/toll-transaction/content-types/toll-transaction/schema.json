@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "toll_transactions",
+  "info": {
+    "singularName": "toll-transaction",
+    "pluralName": "toll-transactions",
+    "displayName": "Transação de Pedágio"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "vehicle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vehicle.vehicle"
+    },
+    "trip": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::trip.trip"
+    },
+    "tollPlaza": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::toll-plaza.toll-plaza"
+    },
+    "transactionDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "axleCount": {
+      "type": "integer"
+    },
+    "paymentMethod": {
+      "type": "enumeration",
+      "enum": ["tag", "cash", "card", "exempt"]
+    },
+    "tagNumber": {
+      "type": "string"
+    }
+  }
+}
